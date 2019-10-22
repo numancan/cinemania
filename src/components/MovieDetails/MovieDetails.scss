@@ -1,0 +1,24 @@
+@import '../../styles/index';
+
+.poster {
+  align-self: center;
+}
+
+.detail {
+  margin-left: 1rem;
+
+  .title {
+    margin-bottom: 2rem;
+  }
+
+  h3 {
+    margin: 2rem 0 0.4rem;
+  }
+
+  .cast-profil {
+    width: 3.5rem;
+    border: 1px solid;
+    margin-right: 1rem;
+    border-radius: 50%;
+  }
+}

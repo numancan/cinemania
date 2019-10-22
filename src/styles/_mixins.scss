@@ -1,0 +1,31 @@
+@mixin media($max-width) {
+  @media screen and (max-width: $max-width) {
+    @content;
+  }
+}
+
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+@mixin position-abs($top: 0, $right: 0, $left: auto, $bottom: auto) {
+  position: absolute;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+
+@mixin flex($dir: row, $jc: flex-start, $align: stretch) {
+  display: flex;
+  flex-direction: $dir;
+  align-items: $align;
+  justify-content: $jc;
+}
+
+@mixin gradient-text($color: $primary-gradient) {
+  background: $color;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

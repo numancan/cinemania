@@ -1,0 +1,66 @@
+@import '../../styles/index';
+
+.seats-container {
+  @include flex($dir: column, $align: center);
+
+  @include media(520px) {
+    padding-left: 11rem;
+    overflow-y: scroll;
+  }
+
+  &::-webkit-scrollbar {
+    width: 0.5rem;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $white;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $gray;
+  }
+
+  .row {
+    @include flex($jc: flex-start, $align: center);
+
+    .seat {
+      @include size(1.6rem);
+      display: inline-block;
+      border: 0;
+      margin: 0.4rem;
+      background: $gray;
+      color: $white;
+      cursor: pointer;
+      outline: none;
+    }
+
+    .sold {
+      background-color: $secondary-color;
+      cursor: default;
+    }
+
+    .selected {
+      background-color: $primary-color;
+    }
+  }
+
+  .scene {
+    width: 90%;
+    margin: 3rem;
+    text-align: center;
+
+    @include media(520px) {
+      width: 100vw;
+    }
+
+    &::after {
+      display: block;
+      border: 0.3rem solid;
+      content: '';
+    }
+
+    + button {
+      margin-left: auto;
+    }
+  }
+}

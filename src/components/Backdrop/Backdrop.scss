@@ -1,0 +1,25 @@
+@import '../../styles/index';
+
+.backdrop-overlay {
+  @include size(100%);
+  @include position-abs;
+  z-index: $backdrop-index;
+  background: $backdrop-gradient;
+}
+
+.backdrop {
+  @include position-abs;
+  @include size(100%);
+  z-index: $backdrop-index;
+  min-height: 350px;
+  filter: blur(0.7rem);
+  transform: scale(1.1);
+
+  &.blur-light {
+    filter: blur(0.1rem);
+  }
+
+  &.no-stretch-height {
+    height: auto;
+  }
+}

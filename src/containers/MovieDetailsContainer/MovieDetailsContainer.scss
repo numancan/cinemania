@@ -1,0 +1,18 @@
+@import '../../styles/mixins';
+@import '../../styles/variables';
+
+.movie-details {
+  @include flex($align: flex-start);
+  position: relative;
+  overflow: hidden;
+  padding: 3rem 0.8rem;
+  color: $white;
+
+  @include media(550px) {
+    @include flex(column);
+
+    .title {
+      margin-top: 1rem;
+    }
+  }
+}

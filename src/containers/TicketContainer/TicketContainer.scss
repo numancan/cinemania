@@ -1,0 +1,35 @@
+@import '../../styles/index';
+
+.ticket {
+  @include flex($align: center);
+  padding: 0.5rem;
+  border: 1px solid $primary-color;
+  margin-bottom: 2rem;
+  border-radius: 0.3rem;
+
+  h4 {
+    flex: 2;
+    text-align: left;
+
+    &::first-letter {
+      text-transform: uppercase;
+    }
+  }
+
+  &::before {
+    margin-right: 0.4rem;
+    color: $primary-color;
+    content: ' \25CF';
+    font-size: 1rem;
+  }
+
+  .price {
+    padding: 0.5rem 2rem;
+    border-right: 1px solid $primary-color;
+    margin-right: 2rem;
+
+    @include media(360px) {
+      padding: 0.1rem 0.5rem;
+    }
+  }
+}

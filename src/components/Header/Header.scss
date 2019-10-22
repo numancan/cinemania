@@ -1,0 +1,22 @@
+@import '../../styles/index';
+
+.header {
+  @include gradient-text;
+  position: relative;
+  display: inline-block;
+  padding: 0.3rem;
+  margin: 1rem 0 1rem 0.8rem;
+
+  @include media(31.25rem) {
+    font-size: 1.5rem;
+  }
+
+  &::after {
+    @include position-abs;
+    @include size(100%);
+    display: block;
+    border: 0.1rem solid;
+    border-image: $primary-gradient 1;
+    content: '';
+  }
+}

@@ -1,0 +1,16 @@
+@import '../../styles/index';
+
+.random-movie {
+  @include size(100%, 40vh);
+  position: relative;
+  overflow: hidden;
+  padding: 1rem;
+
+  @include media(1024px) {
+    height: 50vh;
+  }
+
+  .title {
+    color: $white;
+  }
+}

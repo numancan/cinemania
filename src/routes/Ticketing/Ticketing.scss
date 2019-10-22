@@ -1,0 +1,36 @@
+@import '../../styles/mixins';
+@import '../../styles/variables';
+
+.ticketing {
+  text-align: right;
+
+  .movie-detail {
+    @include size(35vw, 100vh);
+    @include flex(column, center, center);
+    @include position-abs;
+
+    overflow: hidden;
+    padding: 0 1rem;
+    color: $white;
+    text-align: center;
+
+    @include media(820px) {
+      @include size(100%, auto);
+      position: relative;
+      padding: 3rem;
+    }
+
+    .poster {
+      width: 50%;
+    }
+  }
+
+  .ticketing-states {
+    width: 56vw;
+    margin: 3rem 0.8rem 0.8rem;
+
+    @include media(820px) {
+      @include size(auto);
+    }
+  }
+}

@@ -1,0 +1,31 @@
+@import '../../styles/mixins';
+@import '../../styles/variables';
+
+.successful {
+  @include position-abs;
+  @include size(100%);
+  @include flex($dir: column, $align: center);
+  z-index: $backdrop-index;
+  overflow: hidden;
+  padding: 2rem;
+  padding-top: 20vh;
+  color: $white;
+
+  @include media(520px) {
+    align-items: flex-start;
+  }
+
+  h1 {
+    @include gradient-text;
+    margin-bottom: 0.6rem;
+    font-size: 3.5rem;
+
+    @include media(520px) {
+      font-size: 2.5rem;
+    }
+  }
+
+  span {
+    font-weight: 100;
+  }
+}
