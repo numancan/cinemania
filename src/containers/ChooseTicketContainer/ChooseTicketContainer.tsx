@@ -1,4 +1,6 @@
 import React, { FC, useContext, useState, useEffect, Fragment } from 'react';
+import './ChooseTicketContainer.scss';
+
 import { fetchTicketPrices } from '../../services/movieService';
 import { TotalContext } from '../../contexts/TotalContext';
 
@@ -22,6 +24,7 @@ const ChooseTicketContainer: FC<{ nextState: () => void }> = ({ nextState }) => 
   if (!ticketPrices) return <Loading />;
   return (
     <Fragment>
+      <h1 className="section-title">Choose your ticket</h1>
       {ticketPrices.map((ticketPrice: TicketPrice) => (
         <TicketContainer key={ticketPrice.type} {...ticketPrice} />
       ))}

@@ -1,8 +1,9 @@
-import React, { FC, useContext, useState, MouseEvent, useEffect } from 'react';
+import React, { FC, useContext, useState, MouseEvent, useEffect, Fragment } from 'react';
 import './ChooseSeatContainer.scss';
 
 import { TotalContext } from '../../contexts/TotalContext';
 import { fetchSoldSeats } from '../../services/movieService';
+
 import Loading from '../../components/Loading';
 import Button from '../../components/Button';
 
@@ -57,27 +58,30 @@ const ChooseSeatContainer: FC<Props> = props => {
 
   if (!soldSeats.length) return <Loading />;
   return (
-    <div className="seats-container">
-      {hallTemplate.map((seats: string[], idx: number) => (
-        <div className="row" key={seats[idx].charAt(0)}>
-          {seats.map((seat: string) => (
-            <button
-              className={soldSeats.includes(seat) ? 'seat sold' : 'seat'}
-              onClick={handleClick}
-              value={seat}
-              key={seat}
-            >
-              {seat}
-            </button>
-          ))}
-        </div>
-      ))}
-      <div className="scene">SCENE</div>
+    <Fragment>
+      <h1 className="section-title">Choose your ticket</h1>
+      <div className="seats-container">
+        {hallTemplate.map((seats: string[], idx: number) => (
+          <div className="row" key={seats[idx].charAt(0)}>
+            {seats.map((seat: string) => (
+              <button
+                className={soldSeats.includes(seat) ? 'seat sold' : 'seat'}
+                onClick={handleClick}
+                value={seat}
+                key={seat}
+              >
+                {seat}
+              </button>
+            ))}
+          </div>
+        ))}
+        <div className="scene">SCENE</div>
+      </div>
       <Button
         onClick={() => selectedSeats.length === totalTicketCount && nextState()}
         value="Continue"
       />
-    </div>
+    </Fragment>
   );
 };
 

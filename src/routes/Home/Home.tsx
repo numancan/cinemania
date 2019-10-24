@@ -1,7 +1,9 @@
 import React, { FC, Fragment, useState, useEffect } from 'react';
+
+import { fetchMovies } from '../../services/movieService';
+
 import InTheatersContainer from '../../containers/InTheatersContainer';
 import RandomMovie from '../../components/RandomMovie';
-import { fetchMovies } from '../../services/movieService';
 import Loading from '../../components/Loading';
 
 const random = (value: number) => Math.floor(Math.random() * value);
