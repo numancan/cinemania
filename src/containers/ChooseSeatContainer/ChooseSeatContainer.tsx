@@ -59,7 +59,7 @@ const ChooseSeatContainer: FC<Props> = props => {
   if (!soldSeats.length) return <Loading />;
   return (
     <Fragment>
-      <h1 className="section-title">Choose your ticket</h1>
+      <h1 className="section-title">Choose your seat</h1>
       <div className="seats-container">
         {hallTemplate.map((seats: string[], idx: number) => (
           <div className="row" key={seats[idx].charAt(0)}>
