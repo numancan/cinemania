@@ -22,6 +22,7 @@ const Showtimes: FC<Props> = ({ setShowShowtimes }) => (
         {showtime}
       </Link>
     ))}
+
     <button className="btn-close" onClick={() => setShowShowtimes(false)}>
       x
     </button>

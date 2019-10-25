@@ -22,13 +22,13 @@ const MovieDetailsContainer: FC<{ id: string }> = ({ id }) => {
 
   if (isLoading) return <Loading />;
   return (
-    <div className="movie-details">
+    <section className="movie-details">
       <MovieDetails selectedMovie={selectedMovie} showMoreDetail>
         <h3> </h3>
         <Button onClick={() => setShowShowtimes(true)} value="Buy Ticket" />
         {showShowtimes ? <Showtimes setShowShowtimes={setShowShowtimes} /> : null}
       </MovieDetails>
-    </div>
+    </section>
   );
 };
 

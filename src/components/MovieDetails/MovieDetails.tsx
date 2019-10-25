@@ -18,7 +18,7 @@ const MovieDetails: SFC<Props> = ({ selectedMovie, showMoreDetail = false, child
     <Backdrop src={selectedMovie.backdrop_path || ''} />
     <img className="poster" src={baseUrl.poster + selectedMovie.poster_path} alt="poster" />
 
-    <div className="detail">
+    <section className="detail">
       <h2 className="title">{selectedMovie.title}</h2>
       <h3>Overview</h3>
       <p>{selectedMovie.overview}</p>
@@ -47,8 +47,9 @@ const MovieDetails: SFC<Props> = ({ selectedMovie, showMoreDetail = false, child
           ></iframe>
         </Fragment>
       ) : null}
+
       {children}
-    </div>
+    </section>
   </Fragment>
 );
 

@@ -4,8 +4,8 @@ import './ChooseTicketContainer.scss';
 import { fetchTicketPrices } from '../../services/movieService';
 import { TotalContext } from '../../contexts/TotalContext';
 
-import Loading from '../../components/Loading';
 import TicketContainer from '../TicketContainer';
+import Loading from '../../components/Loading';
 import Button from '../../components/Button';
 
 const ChooseTicketContainer: FC<{ nextState: () => void }> = ({ nextState }) => {

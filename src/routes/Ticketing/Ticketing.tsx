@@ -2,11 +2,11 @@ import React, { FC, useState, useContext } from 'react';
 import { RouteComponentProps, Redirect } from 'react-router-dom';
 import './Ticketing.scss';
 
+import { SelectedMovieContext } from '../../contexts/SelectedMovieContext';
+
 import ChooseTicketContainer from '../../containers/ChooseTicketContainer';
 import ChooseSeatContainer from '../../containers/ChooseSeatContainer';
 import MovieDetails from '../../components/MovieDetails';
-
-import { SelectedMovieContext } from '../../contexts/SelectedMovieContext';
 
 interface RouteState {
   showtime: string;

@@ -1,7 +1,7 @@
 import React, { SFC } from 'react';
 import { Link } from 'react-router-dom';
-
 import './RandomMovie.scss';
+
 import Backdrop from '../Backdrop';
 
 const RandomMovie: SFC<{ movie: Movie }> = ({ movie }) => (
@@ -12,4 +12,5 @@ const RandomMovie: SFC<{ movie: Movie }> = ({ movie }) => (
     </div>
   </Link>
 );
+
 export default RandomMovie;

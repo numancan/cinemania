@@ -13,4 +13,5 @@ const InTheatersContainer: FC<{ movies: Movie[] }> = ({ movies }) => (
     </div>
   </div>
 );
+
 export default InTheatersContainer;

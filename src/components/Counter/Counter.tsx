@@ -14,4 +14,5 @@ const Counter: FC<Props> = ({ count, increment, decrement }) => (
     <button onClick={increment}>+</button>
   </div>
 );
+
 export default Counter;

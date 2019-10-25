@@ -3,6 +3,7 @@ import { RouteComponentProps } from 'react-router-dom';
 import './Successful.scss';
 
 import { SelectedMovieContext } from '../../contexts/SelectedMovieContext';
+
 import Button from '../../components/Button';
 import Backdrop from '../../components/Backdrop';
 
@@ -36,4 +37,5 @@ const Successful: FC<RouteComponentProps<{}, {}, RouteState>> = ({ location }) =
     </div>
   );
 };
+
 export default Successful;
