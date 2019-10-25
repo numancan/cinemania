@@ -30,7 +30,7 @@ const Successful: FC<RouteComponentProps<{}, {}, RouteState>> = ({ location }) =
       </h2>
       <Button
         onClick={() => {
-          window.location.href = '/';
+          window.location.href = `${process.env.PUBLIC_URL}/`;
         }}
         value="Go Home"
       />

@@ -16,7 +16,7 @@ setConfig({
 const Root: FunctionComponent = () => (
   <SelectedMovieProvider>
     <TotalContextProvider>
-      <BrowserRouter>
+      <BrowserRouter basename={process.env.PUBLIC_URL}>
         <App />
       </BrowserRouter>
     </TotalContextProvider>
