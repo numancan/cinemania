@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "66e78d96361bb4f6ba3baae87f499d57",
+    "revision": "bbfc30049c3e5c806297a471fad4983a",
     "url": "/cinemania/index.html"
   },
   {
@@ -12,7 +12,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/cinemania/static/css/4.0fbce8ee.chunk.css"
   },
   {
-    "revision": "97f83fe05d1879a9f2be",
+    "revision": "dee024500ddf8ca06573",
     "url": "/cinemania/static/css/main.18c839d9.chunk.css"
   },
   {
@@ -28,8 +28,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/cinemania/static/js/4.e9aa6001.chunk.js"
   },
   {
-    "revision": "97f83fe05d1879a9f2be",
-    "url": "/cinemania/static/js/main.ba5ccfb7.chunk.js"
+    "revision": "dee024500ddf8ca06573",
+    "url": "/cinemania/static/js/main.dff38ce4.chunk.js"
   },
   {
     "revision": "73d49a3e9a6459145b7c",

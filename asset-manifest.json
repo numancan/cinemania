@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/cinemania/static/css/main.18c839d9.chunk.css",
-    "main.js": "/cinemania/static/js/main.ba5ccfb7.chunk.js",
-    "main.js.map": "/cinemania/static/js/main.ba5ccfb7.chunk.js.map",
+    "main.js": "/cinemania/static/js/main.dff38ce4.chunk.js",
+    "main.js.map": "/cinemania/static/js/main.dff38ce4.chunk.js.map",
     "runtime-main.js": "/cinemania/static/js/runtime-main.3fb529e1.js",
     "runtime-main.js.map": "/cinemania/static/js/runtime-main.3fb529e1.js.map",
     "static/js/2.a36376ed.chunk.js": "/cinemania/static/js/2.a36376ed.chunk.js",
@@ -14,7 +14,7 @@
     "static/js/4.e9aa6001.chunk.js": "/cinemania/static/js/4.e9aa6001.chunk.js",
     "static/js/4.e9aa6001.chunk.js.map": "/cinemania/static/js/4.e9aa6001.chunk.js.map",
     "index.html": "/cinemania/index.html",
-    "precache-manifest.0c016c2f83f40c6fbacaf308cd57a5fa.js": "/cinemania/precache-manifest.0c016c2f83f40c6fbacaf308cd57a5fa.js",
+    "precache-manifest.b0a2d8991f7aba83ce8a9bbd2196e373.js": "/cinemania/precache-manifest.b0a2d8991f7aba83ce8a9bbd2196e373.js",
     "service-worker.js": "/cinemania/service-worker.js",
     "static/css/3.f05ac564.chunk.css.map": "/cinemania/static/css/3.f05ac564.chunk.css.map",
     "static/css/4.0fbce8ee.chunk.css.map": "/cinemania/static/css/4.0fbce8ee.chunk.css.map",
