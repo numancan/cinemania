@@ -17,6 +17,10 @@
 
   &.blur-light {
     filter: blur(0.1rem);
+
+    @include media(1024px) {
+      filter: blur(0.3rem);
+    }
   }
 
   &.no-stretch-height {

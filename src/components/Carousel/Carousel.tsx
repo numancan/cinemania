@@ -1,19 +1,12 @@
-import React, { SFC, useRef, useState, useEffect } from 'react';
+import React, { FC, useRef, useState } from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretLeft, faCaretRight } from '@fortawesome/free-solid-svg-icons';
 
-import MovieCard from '../MovieCard';
-import Backdrop from '../Backdrop';
-
 import './Carousel.scss';
 
-interface Props {
-  movies: Movie[];
-}
-
 // TODO: Add touch movement
-const Carousel: SFC<Props> = ({ movies }) => {
+const Carousel: FC = React.memo(({ children }) => {
   const sliderRef = useRef<HTMLDivElement>(null);
   const [sliderPosX, setSliderPosX] = useState(-100);
 
@@ -22,12 +15,12 @@ const Carousel: SFC<Props> = ({ movies }) => {
   };
 
   const moveRight = () => {
-    const sliderWidth = (sliderRef && sliderRef.current && sliderRef.current.clientWidth) || 9999;
-    const maxSlideWidth = -(sliderWidth - window.innerWidth);
+    const sliderWidth = (sliderRef && sliderRef.current && sliderRef.current.clientWidth) || 0;
+    const windowWidth = window.innerWidth > 1440 ? 1440 : window.innerWidth; // because of wrapper
+    const maxSlideWidth = -(sliderWidth - windowWidth);
+
     if (maxSlideWidth < sliderPosX) setSliderPosX(sliderPosX - 200);
   };
-
-  const renderMovieCards = () => movies.map(movie => <MovieCard key={movie.id} movie={movie} />);
 
   return (
     <div className="carousel">
@@ -38,13 +31,12 @@ const Carousel: SFC<Props> = ({ movies }) => {
           ref={sliderRef}
           style={{ transform: `translateX(${sliderPosX}px)` }}
         >
-          {renderMovieCards()}
+          {children}
         </div>
       </div>
       <FontAwesomeIcon onClick={moveRight} icon={faCaretRight} size="5x" />
-      <Backdrop src="/f5F4cRhQdUbyVbB5lTNCwUzD6BP.jpg" classNames="blur-light no-stretch-height" />
     </div>
   );
-};
+});
 
 export default Carousel;

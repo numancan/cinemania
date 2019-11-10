@@ -1,20 +1,15 @@
 @import '../../styles/index';
 
 .movie-card {
-  width: 15vw;
+  width: 18rem;
   padding: 1rem;
   text-align: center;
-  @include media(1440px) {
-    width: 30vw;
-  }
+
   @include media(768px) {
-    width: 35vw;
-  }
-  @include media(580px) {
-    width: 45vw;
+    width: 15rem;
   }
   @include media(410px) {
-    width: 70vw;
+    width: 12rem;
   }
 
   .poster {

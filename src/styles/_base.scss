@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500&display=swap');
+@import '../styles/index';
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -16,6 +18,10 @@ ul {
 
 a {
   text-decoration: none;
+}
+
+body {
+  background: $primary-color;
 }
 
 .root {

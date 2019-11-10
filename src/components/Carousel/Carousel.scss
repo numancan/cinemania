@@ -1,10 +1,10 @@
 @import '../../styles/index';
 
+$carousel-height: 100vh - $header-height;
+
 .carousel {
   @include flex;
-  position: relative;
-  width: 100vw;
-  height: 100vh - $header-height;
+  @include size(100vw, $carousel-height);
 
   svg {
     @include position-abs(47%);
@@ -14,10 +14,17 @@
     cursor: pointer;
     transform: translateY(-50%);
     user-select: none;
+
+    @include media(412px) {
+      right: 1rem;
+    }
   }
 
   .arrowLeft {
     left: 2rem;
+    @include media(412px) {
+      left: 1rem;
+    }
   }
 
   &-inner {
