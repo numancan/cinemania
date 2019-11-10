@@ -1,0 +1,37 @@
+@import '../../styles/index';
+
+.carousel {
+  @include flex;
+  position: relative;
+  width: 100vw;
+  height: 100vh - $header-height;
+
+  svg {
+    @include position-abs(47%);
+    z-index: $arrow-btn-index;
+    right: 2rem;
+    color: $secondary-color;
+    cursor: pointer;
+    transform: translateY(-50%);
+    user-select: none;
+  }
+
+  .arrowLeft {
+    left: 2rem;
+  }
+
+  &-inner {
+    @include flex($align: center);
+    overflow: hidden;
+  }
+
+  .slider {
+    display: flex;
+    flex-wrap: nowrap;
+    transition: transform 0.25s ease-out;
+
+    > div {
+      flex: 0 0 auto;
+    }
+  }
+}

@@ -5,6 +5,8 @@ import { fetchMovies } from '../../services/movieService';
 import InTheatersContainer from '../../containers/InTheatersContainer';
 import RandomMovie from '../../components/RandomMovie';
 import Loading from '../../components/Loading';
+import Carousel from '../../components/Carousel';
+import Backdrop from '../../components/Backdrop';
 
 const random = (value: number) => Math.floor(Math.random() * value);
 
@@ -23,8 +25,7 @@ const Home: FC = () => {
   if (!randomMovie) return <Loading />;
   return (
     <Fragment>
-      <RandomMovie movie={randomMovie} />
-      <InTheatersContainer movies={movies} />
+      <Carousel movies={movies} />
     </Fragment>
   );
 };
