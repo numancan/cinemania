@@ -1,0 +1,26 @@
+@import '../../styles/index';
+
+.row {
+  @include flex($align: center);
+
+  .seat {
+    @include size(1.8rem);
+    display: inline-block;
+    border: 0;
+    margin: 0.4rem;
+    background: $gray;
+    color: $dark-text-color;
+    cursor: pointer;
+    outline: none;
+  }
+
+  .sold {
+    background-color: darken($secondary-color, 30);
+    color: $gray;
+  }
+
+  .selected {
+    background-color: $secondary-color;
+    cursor: default;
+  }
+}

@@ -2,10 +2,9 @@
 
 .ticket {
   @include flex($align: center);
-  padding: 0.5rem;
-  border: 1px solid $primary-color;
+  padding: 1rem;
+  border: 1px solid $secondary-color;
   margin-bottom: 2rem;
-  border-radius: 0.3rem;
 
   h4 {
     flex: 2;
@@ -30,6 +29,24 @@
 
     @include media(360px) {
       padding: 0.1rem 0.5rem;
+    }
+  }
+
+  .counter {
+    @include flex($align: center);
+
+    button {
+      @include size(2rem, 2rem);
+      padding: 0;
+      margin: 0;
+      font-size: 1.3rem;
+      font-weight: 700;
+    }
+
+    p {
+      width: 2rem;
+      margin: 0 0.5rem;
+      text-align: center;
     }
   }
 }

@@ -1,8 +1,9 @@
 import React, { useState, FC, useContext } from 'react';
-import './TicketContainer.scss';
 
 import { TotalContext } from '../../contexts/TotalContext';
-import Counter from '../../components/Counter';
+import Button from '../../components/Button';
+
+import './TicketContainer.scss';
 
 interface Props {
   price: number;
@@ -28,7 +29,11 @@ const TicketContainer: FC<Props> = ({ price, type }) => {
     <div className="ticket">
       <h4>{type}</h4>
       <p className="price">{price} TL</p>
-      <Counter count={count} increment={increment} decrement={decrement} />
+      <div className="counter">
+        <Button onClick={decrement}>-</Button>
+        <p>{count}</p>
+        <Button onClick={increment}>+</Button>
+      </div>
     </div>
   );
 };

@@ -14,13 +14,15 @@ enum baseUrl {
 
 interface Props {
   selectedMovie: MovieDetails;
-  showtimes: string[];
+  showtimes?: string[];
+  showMoreDetail?: boolean;
 }
 
-const MovieDetails: SFC<Props> = ({ selectedMovie, showtimes }) => {
+const MovieDetails: SFC<Props> = React.memo(({ selectedMovie, showtimes, showMoreDetail }) => {
   const renderGenres = () => selectedMovie.genres.map(genre => genre.name).join(', ');
 
   const renderShowtimes = () =>
+    showtimes &&
     showtimes.map(showtime => (
       <p className="button" key={showtime}>
         <Link to={{ pathname: '/ticketing', state: { showtime } }}>{showtime}</Link>
@@ -55,25 +57,29 @@ const MovieDetails: SFC<Props> = ({ selectedMovie, showtimes }) => {
             Rating:<span>{selectedMovie.vote_average}</span>
           </h3>
 
-          <div className="buttons">
-            <details className="details">
-              <summary className="button secondary">Buy Ticket</summary>
-              {renderShowtimes()}
-            </details>
-            <Button onClick={goTrailer}>Trailer</Button>
-          </div>
+          {showMoreDetail && (
+            <div className="buttons">
+              <details className="details">
+                <summary className="button secondary">Buy Ticket</summary>
+                {renderShowtimes()}
+              </details>
+              <Button onClick={goTrailer}>Trailer</Button>
+            </div>
+          )}
         </div>
       </div>
 
-      <section className="more-detail wrapper">
-        <h2 className="subheader">Overview</h2>
-        <p className="overview">{selectedMovie.overview}</p>
+      {showMoreDetail && (
+        <section className="more-detail wrapper">
+          <h2 className="subheader">Overview</h2>
+          <p className="overview">{selectedMovie.overview}</p>
 
-        <h2 className="subheader">Cast</h2>
-        <section className="cast-cards">{renderCast()}</section>
-      </section>
+          <h2 className="subheader">Cast</h2>
+          <section className="cast-cards">{renderCast()}</section>
+        </section>
+      )}
     </div>
   );
-};
+});
 
 export default MovieDetails;

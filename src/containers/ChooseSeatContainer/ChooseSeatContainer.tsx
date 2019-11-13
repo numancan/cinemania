@@ -1,11 +1,13 @@
 import React, { FC, useContext, useState, MouseEvent, useEffect, Fragment } from 'react';
-import './ChooseSeatContainer.scss';
 
 import { TotalContext } from '../../contexts/TotalContext';
 import { fetchSoldSeats } from '../../services/movieService';
 
 import Loading from '../../components/Loading';
 import Button from '../../components/Button';
+import Hall from '../../components/Hall';
+
+import './ChooseSeatContainer.scss';
 
 interface Props {
   showtime: string;
@@ -27,12 +29,10 @@ const hallTemplate: string[][] = [
 ];
 
 const ChooseSeatContainer: FC<Props> = props => {
-  const [soldSeats, setSoldSeats] = useState<string[]>([]);
   const { hallID, showtime, nextState, selectedSeats, setSelectedSeats } = props;
+  const [soldSeats, setSoldSeats] = useState<string[]>([]);
 
-  const {
-    state: { totalTicketCount },
-  } = useContext(TotalContext);
+  const { totalTicketCount } = useContext(TotalContext).state;
 
   useEffect(() => {
     fetchSoldSeats(hallID, showtime).then(res => setSoldSeats(res));
@@ -61,26 +61,13 @@ const ChooseSeatContainer: FC<Props> = props => {
     <Fragment>
       <h1 className="section-title">Choose your seat</h1>
       <div className="seats-container">
-        {hallTemplate.map((seats: string[], idx: number) => (
-          <div className="row" key={seats[idx].charAt(0)}>
-            {seats.map((seat: string) => (
-              <button
-                className={soldSeats.includes(seat) ? 'seat sold' : 'seat'}
-                onClick={handleClick}
-                value={seat}
-                key={seat}
-              >
-                {seat}
-              </button>
-            ))}
-          </div>
-        ))}
+        {<Hall hallTemplate={hallTemplate} onClick={handleClick} soldSeats={soldSeats} />}
         <div className="scene">SCENE</div>
+
+        <Button onClick={() => selectedSeats.length === totalTicketCount && nextState()}>
+          Continue
+        </Button>
       </div>
-      <Button
-        onClick={() => selectedSeats.length === totalTicketCount && nextState()}
-        value="Continue"
-      />
     </Fragment>
   );
 };

@@ -21,7 +21,7 @@ const MovieDetailsContainer: FC<{ id: string }> = ({ id }) => {
   }, [id, setIsLoading, setSelectedMovie]);
 
   if (isLoading) return <Loading />;
-  return <MovieDetails selectedMovie={selectedMovie} showtimes={showtimes} />;
+  return <MovieDetails selectedMovie={selectedMovie} showtimes={showtimes} showMoreDetail />;
 };
 
 export default MovieDetailsContainer;
