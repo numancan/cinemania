@@ -1,11 +1,12 @@
 import React, { FC, useContext } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
-import './Successful.scss';
 
 import { SelectedMovieContext } from '../../contexts/SelectedMovieContext';
 
 import Button from '../../components/Button';
 import Backdrop from '../../components/Backdrop';
+
+import './Successful.scss';
 
 interface RouteState {
   showtime: string;
@@ -18,22 +19,26 @@ const Successful: FC<RouteComponentProps<{}, {}, RouteState>> = ({ location }) =
   return (
     <div className="successful">
       <Backdrop src={selectedMovie.backdrop_path} />
-      <h1>Successful</h1>
-      <h2>
-        Movie: <span>{selectedMovie.title}</span>
-      </h2>
-      <h2>
-        Showtime: <span>{location.state.showtime}</span>
-      </h2>
-      <h2>
-        Chosen Seats: <span>{location.state.selectedSeats.toString()}</span>
-      </h2>
-      <Button
-        onClick={() => {
-          window.location.href = `${process.env.PUBLIC_URL}/`;
-        }}
-        value="Go Home"
-      />
+
+      <div className="wrapper">
+        <h1>Successful</h1>
+        <h2>
+          Movie: <span>{selectedMovie.title}</span>
+        </h2>
+        <h2>
+          Showtime: <span>{location.state.showtime}</span>
+        </h2>
+        <h2>
+          Chosen Seats: <span>{location.state.selectedSeats.join(', ')}</span>
+        </h2>
+        <Button
+          onClick={() => {
+            window.location.href = `${process.env.PUBLIC_URL}/`;
+          }}
+        >
+          Go Home
+        </Button>
+      </div>
     </div>
   );
 };

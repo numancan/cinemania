@@ -1,35 +1,43 @@
-@import '../../styles/mixins';
-@import '../../styles/variables';
+@import '../../styles/index';
 
 .successful {
   @include position-abs;
   @include size(100%);
-  @include flex($dir: column, $align: center);
+
   z-index: $backdrop-index;
   overflow: hidden;
   padding: 2rem;
   padding-top: 20vh;
-  color: $white;
 
-  @include media(520px) {
-    align-items: flex-start;
-  }
-
-  h1 {
-    @include gradient-text;
-    margin-bottom: 0.6rem;
-    font-size: 3.5rem;
+  > .wrapper {
+    @include flex($dir: column);
+    width: 24rem;
 
     @include media(520px) {
-      font-size: 2.5rem;
+      align-items: flex-start;
     }
-  }
 
-  h2 {
-    margin-bottom: 0.4rem;
-  }
+    > h1 {
+      align-self: center;
+      margin-bottom: 2rem;
+      font-size: 4rem;
 
-  span {
-    font-weight: 100;
+      @include media(520px) {
+        font-size: 2.5rem;
+      }
+    }
+
+    > h2 {
+      margin-bottom: 0.4rem;
+    }
+
+    span {
+      color: $white;
+      font-weight: 400;
+    }
+
+    .button {
+      margin-top: 3rem;
+    }
   }
 }
