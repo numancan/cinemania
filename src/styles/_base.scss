@@ -24,6 +24,31 @@ body {
   background: $primary-color;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: $secondary-color;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+p {
+  color: $white;
+}
+
+details > summary::-webkit-details-marker {
+  display: none;
+}
+
+a:visited {
+  color: $dark-text-color;
+}
+
 .root {
   overflow: hidden;
 }

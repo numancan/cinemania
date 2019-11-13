@@ -1,24 +1,60 @@
 @import '../../styles/index';
 
-.poster {
-  align-self: center;
+$poster-top: -20rem;
+
+.movie-details {
+  position: relative;
+
+  .movie-detail-back {
+    @include size(100%, 25rem);
+    @include position-abs;
+    z-index: $backdrop-index;
+    overflow: hidden;
+  }
+
+  .inner.wrapper {
+    @include flex;
+    padding-top: 5rem;
+  }
+
+  .inner .poster {
+    width: 17rem;
+  }
+
+  .content {
+    margin: 0 4rem;
+  }
+
+  .buttons {
+    @include flex($align: flex-start);
+    position: relative;
+    top: 4rem;
+  }
+
+  .details {
+    display: inline-flex;
+  }
+
+  h3.subheader {
+    span {
+      margin-left: 1rem;
+      color: $white;
+      font-size: 0.9em;
+    }
+  }
 }
 
-.detail {
-  margin-left: 1rem;
+.more-detail.wrapper {
+  margin-top: 5rem;
 
-  .title {
-    margin-bottom: 2rem;
+  .cast-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(10rem, 0.5fr));
+    column-gap: 1rem;
+    row-gap: 1rem;
   }
 
-  h3 {
-    margin: 2rem 0 0.4rem;
-  }
-
-  .cast-profil {
-    width: 3.5rem;
-    border: 1px solid;
-    margin-right: 1rem;
-    border-radius: 50%;
+  .subheader {
+    margin: 2rem 0 1rem;
   }
 }

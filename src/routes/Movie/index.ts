@@ -2,9 +2,9 @@ import Loadable from 'react-loadable';
 
 import Loading from '../../components/Loading';
 
-const LoadableHome = Loadable({
+const LoadableMovie = Loadable({
   loader: () => import('./Movie'),
   loading: Loading,
 });
 
-export default LoadableHome;
+export default LoadableMovie;

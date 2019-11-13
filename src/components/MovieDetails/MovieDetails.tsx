@@ -1,7 +1,11 @@
-import React, { SFC, Fragment } from 'react';
-import './MovieDetails.scss';
+import React, { SFC } from 'react';
+import { Link } from 'react-router-dom';
 
 import Backdrop from '../Backdrop';
+import CastCard from '../CastCard';
+import Button from '../Button';
+
+import './MovieDetails.scss';
 
 enum baseUrl {
   poster = 'https://image.tmdb.org/t/p/w300_and_h450_bestv2',
@@ -10,47 +14,66 @@ enum baseUrl {
 
 interface Props {
   selectedMovie: MovieDetails;
-  showMoreDetail?: boolean;
+  showtimes: string[];
 }
 
-const MovieDetails: SFC<Props> = ({ selectedMovie, showMoreDetail = false, children }) => (
-  <Fragment>
-    <Backdrop src={selectedMovie.backdrop_path || ''} />
-    <img className="poster" src={baseUrl.poster + selectedMovie.poster_path} alt="poster" />
+const MovieDetails: SFC<Props> = ({ selectedMovie, showtimes }) => {
+  const renderGenres = () => selectedMovie.genres.map(genre => genre.name).join(', ');
 
-    <section className="detail">
-      <h2 className="title">{selectedMovie.title}</h2>
-      <h3>Overview</h3>
-      <p>{selectedMovie.overview}</p>
+  const renderShowtimes = () =>
+    showtimes.map(showtime => (
+      <p className="button" key={showtime}>
+        <Link to={{ pathname: '/ticketing', state: { showtime } }}>{showtime}</Link>
+      </p>
+    ));
 
-      {showMoreDetail ? (
-        <Fragment>
-          <h3>Cast</h3>
-          {selectedMovie.credits.cast.slice(0, 6).map(({ profile_path: profilPath }) => (
-            <img
-              className="cast-profil"
-              src={baseUrl.profil + profilPath}
-              alt="profil"
-              key={profilPath}
-            />
-          ))}
+  const renderCast = () =>
+    selectedMovie.credits.cast.slice(0, 6).map(cast => <CastCard cast={cast} key={cast.id} />);
 
-          <h3>Trailer</h3>
-          <iframe
-            title={selectedMovie.videos.results[0].name}
-            width="200"
-            height="100"
-            src={`https://www.youtube.com/embed/${selectedMovie.videos.results[0].key}`}
-            frameBorder="0"
-            allow="accelerometer; autoplay; encrypted-media; gyroscope"
-            allowFullScreen
-          ></iframe>
-        </Fragment>
-      ) : null}
+  const goTrailer = () => {
+    window.location.href = `https://youtu.be/${selectedMovie.videos.results[0].key}`;
+  };
 
-      {children}
-    </section>
-  </Fragment>
-);
+  return (
+    <div className="movie-details">
+      <div className="movie-detail-back">
+        <Backdrop src={selectedMovie.backdrop_path || ''} classNames="no-stretch-height" />
+      </div>
+      <div className="inner wrapper">
+        <img className="poster" src={baseUrl.poster + selectedMovie.poster_path} alt="poster" />
+        <div className="content">
+          <h1>{selectedMovie.title}</h1>
+          <h3 className="subheader">
+            Genre:<span>{renderGenres()}</span>
+          </h3>
+
+          <h3 className="subheader">
+            Duration:<span>{selectedMovie.runtime} minute</span>
+          </h3>
+
+          <h3 className="subheader">
+            Rating:<span>{selectedMovie.vote_average}</span>
+          </h3>
+
+          <div className="buttons">
+            <details className="details">
+              <summary className="button secondary">Buy Ticket</summary>
+              {renderShowtimes()}
+            </details>
+            <Button onClick={goTrailer}>Trailer</Button>
+          </div>
+        </div>
+      </div>
+
+      <section className="more-detail wrapper">
+        <h2 className="subheader">Overview</h2>
+        <p className="overview">{selectedMovie.overview}</p>
+
+        <h2 className="subheader">Cast</h2>
+        <section className="cast-cards">{renderCast()}</section>
+      </section>
+    </div>
+  );
+};
 
 export default MovieDetails;

@@ -1,14 +1,17 @@
 import React, { FC } from 'react';
+
 import './Button.scss';
 
 interface Props {
   onClick?: () => void;
-  value: string;
+  value?: string;
+  secondary?: boolean;
 }
 
-const Button: FC<Props> = ({ onClick, value }) => (
-  <button className="button" onClick={onClick}>
-    {value}
+// TODO: maybe, using classnames is better
+const Button: FC<Props> = ({ onClick, children, secondary }) => (
+  <button className={`button ${(secondary && 'secondary') || ''}`} onClick={onClick}>
+    {children}
   </button>
 );
 

@@ -1,12 +1,13 @@
 import React, { FC } from 'react';
 import { Link } from 'react-router-dom';
+
 import './Showtimes.scss';
 
 interface Props {
-  setShowShowtimes: (value: boolean) => void;
+  setShowShowtimes?: (state: boolean) => void;
 }
 
-const showtimes: string[] = ['13:00', '16:00', '19:30'];
+const showtimes = ['13:00', '16:00', '19:30'];
 
 const Showtimes: FC<Props> = ({ setShowShowtimes }) => (
   <div className="showtimes">
@@ -15,17 +16,13 @@ const Showtimes: FC<Props> = ({ setShowShowtimes }) => (
         className="showtime"
         to={{ pathname: '/ticketing', state: { showtime } }}
         key={showtime}
-        onClick={() => {
-          document.documentElement.scrollTop = 0;
-        }}
       >
         {showtime}
       </Link>
     ))}
 
-    <button className="btn-close" onClick={() => setShowShowtimes(false)}>
-      x
-    </button>
+    {/* TODO: use FontAweseome */}
+    <button className="btn-close">x</button>
   </div>
 );
 
