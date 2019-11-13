@@ -6,20 +6,18 @@
   border: 1px solid $secondary-color;
   margin-bottom: 2rem;
 
-  h4 {
+  svg {
+    margin-right: 1.2rem;
+    color: $white;
+  }
+
+  > h4 {
     flex: 2;
     text-align: left;
 
     &::first-letter {
       text-transform: uppercase;
     }
-  }
-
-  &::before {
-    margin-right: 0.4rem;
-    color: $primary-color;
-    content: ' \25CF';
-    font-size: 1rem;
   }
 
   .price {
@@ -35,7 +33,7 @@
   .counter {
     @include flex($align: center);
 
-    button {
+    > .button {
       @include size(2rem, 2rem);
       padding: 0;
       margin: 0;
@@ -43,7 +41,7 @@
       font-weight: 700;
     }
 
-    p {
+    > p {
       width: 2rem;
       margin: 0 0.5rem;
       text-align: center;

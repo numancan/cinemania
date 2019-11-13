@@ -1,5 +1,8 @@
 import React, { useState, FC, useContext } from 'react';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTicketAlt } from '@fortawesome/free-solid-svg-icons';
+
 import { TotalContext } from '../../contexts/TotalContext';
 import Button from '../../components/Button';
 
@@ -27,6 +30,7 @@ const TicketContainer: FC<Props> = ({ price, type }) => {
 
   return (
     <div className="ticket">
+      <FontAwesomeIcon className="ticket-icon" icon={faTicketAlt} size="2x" />
       <h4>{type}</h4>
       <p className="price">{price} TL</p>
       <div className="counter">
