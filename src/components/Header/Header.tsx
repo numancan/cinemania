@@ -14,7 +14,7 @@ const Header: FC = () => {
     <div className="header">
       <div className="wrapper content">
         {location.pathname === '/' ? (
-          <h1>CINEMANIA</h1>
+          <h1 className="website-name">CINEMANIA</h1>
         ) : (
           <FontAwesomeIcon onClick={goBack} icon={faChevronLeft} size="3x" />
         )}

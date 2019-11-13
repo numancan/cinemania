@@ -10,7 +10,7 @@
   .content {
     @include flex(row, space-between, center);
 
-    h1 {
+    .website-name {
       font-family: Salsa, cursive;
     }
 
