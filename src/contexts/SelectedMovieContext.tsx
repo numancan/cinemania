@@ -12,6 +12,8 @@ const initialState: State = {
     overview: '',
     credits: { cast: [] },
     videos: { results: [{ key: '', name: '' }] },
+    genres: [],
+    runtime: '',
   },
   setSelectedMovie: () => {},
 };
