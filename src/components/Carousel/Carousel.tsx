@@ -16,8 +16,8 @@ const Carousel: FC = React.memo(({ children }) => {
 
   const moveRight = () => {
     const sliderWidth = (sliderRef && sliderRef.current && sliderRef.current.clientWidth) || 0;
-    const windowWidth = window.innerWidth > 1440 ? 1440 : window.innerWidth; // because of wrapper
-    const maxSlideWidth = -(sliderWidth - windowWidth);
+    const wrapperWidth = window.innerWidth > 1440 ? 1440 : window.innerWidth;
+    const maxSlideWidth = -(sliderWidth - wrapperWidth);
 
     if (maxSlideWidth < sliderPosX) setSliderPosX(sliderPosX - 200);
   };
