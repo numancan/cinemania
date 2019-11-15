@@ -25,6 +25,10 @@ $poster-top: -20rem;
     margin: 0 4rem;
   }
 
+  .content > h1 {
+    font-size: 3rem;
+  }
+
   .buttons {
     @include flex($align: flex-start);
     position: relative;

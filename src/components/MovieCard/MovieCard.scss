@@ -4,6 +4,7 @@
   width: 18rem;
   padding: 1rem;
   text-align: center;
+  user-select: none;
 
   @include media(768px) {
     width: 15rem;

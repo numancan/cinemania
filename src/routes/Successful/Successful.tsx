@@ -21,16 +21,13 @@ const Successful: FC<RouteComponentProps<{}, {}, RouteState>> = ({ location }) =
       <Backdrop src={selectedMovie.backdrop_path} />
 
       <div className="wrapper">
-        <h1>Successful</h1>
-        <h2>
-          Movie: <span>{selectedMovie.title}</span>
-        </h2>
-        <h2>
-          Showtime: <span>{location.state.showtime}</span>
-        </h2>
-        <h2>
-          Chosen Seats: <span>{location.state.selectedSeats.join(', ')}</span>
-        </h2>
+        <h1>Enjoy Watching!</h1>
+        <h2>Movie</h2>
+        <span>{selectedMovie.title}</span>
+        <h2>Showtime</h2>
+        <span>{location.state.showtime}</span>
+        <h2>Chosen Seats</h2>
+        <span>{location.state.selectedSeats.join(', ')}</span>
         <Button
           onClick={() => {
             window.location.href = `${process.env.PUBLIC_URL}/`;

@@ -10,8 +10,8 @@
   padding-top: 20vh;
 
   > .wrapper {
-    @include flex($dir: column);
-    width: 24rem;
+    @include flex($dir: column, $align: center);
+    width: 50rem;
 
     @include media(520px) {
       align-items: flex-start;
@@ -19,7 +19,7 @@
 
     > h1 {
       align-self: center;
-      margin-bottom: 2rem;
+      margin-bottom: 1rem;
       font-size: 4rem;
 
       @include media(520px) {
@@ -28,16 +28,18 @@
     }
 
     > h2 {
-      margin-bottom: 0.4rem;
+      margin-top: 2rem;
     }
 
     span {
       color: $white;
       font-weight: 400;
+      font-size: 1.25rem;
     }
 
     .button {
       margin-top: 3rem;
+      margin-right: 0;
     }
   }
 }
