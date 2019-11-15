@@ -2,10 +2,12 @@
 
 .seats-container {
   @include flex($dir: column, $align: center);
+  margin-bottom: 2rem;
 
-  @include media(520px) {
-    padding-left: 11rem;
-    overflow-y: scroll;
+  @include media(767px) {
+    align-self: normal;
+    padding-left: 20rem;
+    overflow-y: auto;
   }
 
   &::-webkit-scrollbar {
@@ -35,9 +37,18 @@
       border: 0.3rem solid;
       content: '';
     }
+  }
+}
 
-    + button {
-      margin-left: auto;
+.choose-seat {
+  @include flex(column, center, center);
+
+  > .button {
+    margin-left: auto;
+
+    @include media(767px) {
+      align-self: stretch;
+      margin: 0;
     }
   }
 }

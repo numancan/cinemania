@@ -58,17 +58,17 @@ const ChooseSeatContainer: FC<Props> = props => {
 
   if (!soldSeats.length) return <Loading />;
   return (
-    <Fragment>
+    <div className="choose-seat">
       <h1 className="section-title">Choose your seat</h1>
       <div className="seats-container">
         {<Hall hallTemplate={hallTemplate} onClick={handleClick} soldSeats={soldSeats} />}
         <div className="scene">SCENE</div>
-
-        <Button onClick={() => selectedSeats.length === totalTicketCount && nextState()}>
-          Continue
-        </Button>
       </div>
-    </Fragment>
+
+      <Button onClick={() => selectedSeats.length === totalTicketCount && nextState()}>
+        Continue
+      </Button>
+    </div>
   );
 };
 

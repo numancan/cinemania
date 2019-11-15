@@ -9,6 +9,10 @@
   svg {
     margin-right: 1.2rem;
     color: $white;
+
+    @include media(380px) {
+      display: none;
+    }
   }
 
   > h4 {
@@ -25,8 +29,9 @@
     border-right: 1px solid $primary-color;
     margin-right: 2rem;
 
-    @include media(360px) {
+    @include media(444px) {
       padding: 0.1rem 0.5rem;
+      margin-right: 1rem;
     }
   }
 
@@ -45,6 +50,10 @@
       width: 2rem;
       margin: 0 0.5rem;
       text-align: center;
+
+      @include media(470px) {
+        width: 1rem;
+      }
     }
   }
 }
