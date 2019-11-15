@@ -25,9 +25,11 @@
 
   &.no-stretch-height {
     height: auto;
+  }
+}
 
-    @include media(1024px) {
-      height: 100%;
-    }
+@media (max-aspect-ratio: 8/5) {
+  .backdrop.no-stretch-height {
+    height: 100%;
   }
 }
