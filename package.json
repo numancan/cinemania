@@ -4,6 +4,10 @@
   "private": true,
   "homepage": "http://numancan.github.io/cinemania",
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.25",
+    "@fortawesome/free-brands-svg-icons": "^5.11.2",
+    "@fortawesome/free-solid-svg-icons": "^5.11.2",
+    "@fortawesome/react-fontawesome": "^0.1.7",
     "@types/jest": "24.0.18",
     "@types/node": "12.7.5",
     "@types/react": "16.9.2",
@@ -12,7 +16,7 @@
     "react-dom": "^16.9.0",
     "react-hot-loader": "^4.12.13",
     "react-loadable": "^5.5.0",
-    "react-router-dom": "^5.0.1",
+    "react-router-dom": "^5.1.2",
     "react-scripts": "3.1.2",
     "typescript": "3.6.3"
   },
@@ -52,7 +56,7 @@
     "@atolye15/stylelint-config": "^1.2.0",
     "@hot-loader/react-dom": "^16.9.0",
     "@types/react-loadable": "^5.5.1",
-    "@types/react-router-dom": "^4.3.5",
+    "@types/react-router-dom": "^5.1.2",
     "customize-cra": "^0.7.0",
     "eslint": "^6.4.0",
     "gh-pages": "^2.1.1",

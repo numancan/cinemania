@@ -2,12 +2,20 @@
 
 .ticket {
   @include flex($align: center);
-  padding: 0.5rem;
-  border: 1px solid $primary-color;
+  padding: 1rem;
+  border: 1px solid $secondary-color;
   margin-bottom: 2rem;
-  border-radius: 0.3rem;
 
-  h4 {
+  svg {
+    margin-right: 1.2rem;
+    color: $white;
+
+    @include media(380px) {
+      display: none;
+    }
+  }
+
+  > h4 {
     flex: 2;
     text-align: left;
 
@@ -16,20 +24,36 @@
     }
   }
 
-  &::before {
-    margin-right: 0.4rem;
-    color: $primary-color;
-    content: ' \25CF';
-    font-size: 1rem;
-  }
-
   .price {
     padding: 0.5rem 2rem;
     border-right: 1px solid $primary-color;
     margin-right: 2rem;
 
-    @include media(360px) {
+    @include media(444px) {
       padding: 0.1rem 0.5rem;
+      margin-right: 1rem;
+    }
+  }
+
+  .counter {
+    @include flex($align: center);
+
+    > .button {
+      @include size(2rem, 2rem);
+      padding: 0;
+      margin: 0;
+      font-size: 1.3rem;
+      font-weight: 700;
+    }
+
+    > p {
+      width: 2rem;
+      margin: 0 0.5rem;
+      text-align: center;
+
+      @include media(470px) {
+        width: 1rem;
+      }
     }
   }
 }

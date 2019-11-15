@@ -1,10 +1,11 @@
-import React, { FC, Fragment, useState, useEffect } from 'react';
+import React, { FC, useState, useEffect } from 'react';
 
 import { fetchMovies } from '../../services/movieService';
 
-import InTheatersContainer from '../../containers/InTheatersContainer';
-import RandomMovie from '../../components/RandomMovie';
 import Loading from '../../components/Loading';
+import Carousel from '../../components/Carousel';
+import Backdrop from '../../components/Backdrop';
+import MovieCard from '../../components/MovieCard';
 
 const random = (value: number) => Math.floor(Math.random() * value);
 
@@ -22,10 +23,15 @@ const Home: FC = () => {
 
   if (!randomMovie) return <Loading />;
   return (
-    <Fragment>
-      <RandomMovie movie={randomMovie} />
-      <InTheatersContainer movies={movies} />
-    </Fragment>
+    <div style={{ position: 'relative' }}>
+      <Carousel>
+        {movies.map(movie => (
+          <MovieCard key={movie.id} movie={movie} />
+        ))}
+      </Carousel>
+
+      <Backdrop src={randomMovie.backdrop_path} classNames="blur-light no-stretch-height" />
+    </div>
   );
 };
 

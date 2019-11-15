@@ -6,7 +6,7 @@ interface Props {
   classNames?: string;
 }
 
-const Backdrop: SFC<Props> = ({ src = '', classNames = '' }) => (
+const Backdrop: SFC<Props> = React.memo(({ src = '', classNames = '' }) => (
   <Fragment>
     <img
       className={`backdrop ${classNames}`}
@@ -15,6 +15,6 @@ const Backdrop: SFC<Props> = ({ src = '', classNames = '' }) => (
     />
     <div className="backdrop-overlay" />
   </Fragment>
-);
+));
 
 export default Backdrop;

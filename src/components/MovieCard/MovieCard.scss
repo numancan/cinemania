@@ -1,7 +1,17 @@
 @import '../../styles/index';
 
 .movie-card {
+  width: 18rem;
+  padding: 1rem;
   text-align: center;
+  user-select: none;
+
+  @include media(768px) {
+    width: 15rem;
+  }
+  @include media(410px) {
+    width: 12rem;
+  }
 
   .poster {
     width: 100%;
@@ -13,8 +23,8 @@
   }
 
   .title {
-    @include gradient-text();
     display: inline-block;
+    color: $secondary-color;
     font-weight: 400;
   }
 }

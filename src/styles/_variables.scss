@@ -1,12 +1,13 @@
-$primary-gradient: linear-gradient(to right, #8a2387, #e94057, #f27121);
-$backdrop-gradient: linear-gradient(to right, #0f2027b6, #203a43b6, #2c5364b6);
+$primary-color: #263238;
+$secondary-color: #00e676;
 
-$primary-color: #8a2387;
-$secondary-color: #f27121;
+$dark-text-color: #264348;
+
 $white: #f5f5f5;
-$title-color: #264348;
 $gray: #bfbfbf;
 
-$backdrop-index: -1;
-
 $spinner-size: 2.2rem;
+$header-height: 10vh;
+
+$arrow-btn-index: 2;
+$backdrop-index: -1;

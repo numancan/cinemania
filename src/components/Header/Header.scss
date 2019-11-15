@@ -1,22 +1,21 @@
 @import '../../styles/index';
+@import url('https://fonts.googleapis.com/css?family=Salsa&display=swap');
 
 .header {
-  @include gradient-text;
-  position: relative;
-  display: inline-block;
-  padding: 0.3rem;
-  margin: 1rem 0 1rem 0.8rem;
+  @include flex($align: center);
+  height: $header-height;
+  background-color: $primary-color;
+  color: $secondary-color;
 
-  @include media(31.25rem) {
-    font-size: 1.5rem;
-  }
+  .content {
+    @include flex(row, space-between, center);
 
-  &::after {
-    @include position-abs;
-    @include size(100%);
-    display: block;
-    border: 0.1rem solid;
-    border-image: $primary-gradient 1;
-    content: '';
+    .website-name {
+      font-family: Salsa, cursive;
+    }
+
+    svg {
+      cursor: pointer;
+    }
   }
 }

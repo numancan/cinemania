@@ -1,17 +1,17 @@
 import React, { FC, useEffect, useContext, useState } from 'react';
-import './MovieDetailsContainer.scss';
 
 import { fetchMovieDetailsByID } from '../../services/movieService';
 import { SelectedMovieContext } from '../../contexts/SelectedMovieContext';
 
-import Button from '../../components/Button';
 import Loading from '../../components/Loading';
-import Showtimes from '../../components/Showtimes';
 import MovieDetails from '../../components/MovieDetails';
+
+import './MovieDetailsContainer.scss';
+
+const showtimes: string[] = ['13:00', '16:00', '19:30'];
 
 const MovieDetailsContainer: FC<{ id: string }> = ({ id }) => {
   const { selectedMovie, setSelectedMovie } = useContext(SelectedMovieContext);
-  const [showShowtimes, setShowShowtimes] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -21,15 +21,7 @@ const MovieDetailsContainer: FC<{ id: string }> = ({ id }) => {
   }, [id, setIsLoading, setSelectedMovie]);
 
   if (isLoading) return <Loading />;
-  return (
-    <section className="movie-details">
-      <MovieDetails selectedMovie={selectedMovie} showMoreDetail>
-        <h3> </h3>
-        <Button onClick={() => setShowShowtimes(true)} value="Buy Ticket" />
-        {showShowtimes ? <Showtimes setShowShowtimes={setShowShowtimes} /> : null}
-      </MovieDetails>
-    </section>
-  );
+  return <MovieDetails selectedMovie={selectedMovie} showtimes={showtimes} showMoreDetail />;
 };
 
 export default MovieDetailsContainer;

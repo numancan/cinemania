@@ -1,24 +1,103 @@
 @import '../../styles/index';
 
-.poster {
-  align-self: center;
+$poster-top: -20rem;
+
+.movie-details {
+  position: relative;
+
+  .movie-detail-back {
+    @include size(100%, 25rem);
+    @include position-abs;
+    z-index: $backdrop-index;
+    overflow: hidden;
+  }
+
+  .inner {
+    @include flex;
+    padding-top: 5rem;
+
+    @include media(767px) {
+      @include flex(column);
+    }
+
+    .poster {
+      width: 17rem;
+      margin-bottom: 1.5rem;
+
+      @include media(767px) {
+        width: 14rem;
+        align-self: center;
+      }
+    }
+
+    .buttons {
+      @include flex($align: flex-start);
+      position: relative;
+      top: 4rem;
+
+      @include media(767px) {
+        @include flex(column);
+
+        * {
+          margin-right: 0;
+        }
+      }
+    }
+
+    .details {
+      display: inline-flex;
+
+      @include media(767px) {
+        order: 2;
+        margin: 1rem 0;
+      }
+    }
+  }
+
+  .content {
+    margin: 0 4rem;
+
+    @include media(767px) {
+      margin: 0;
+    }
+
+    > h1 {
+      font-size: 3rem;
+
+      @include media(767px) {
+        margin-bottom: 1rem;
+        font-size: 2.7rem;
+        text-align: center;
+      }
+    }
+  }
+
+  h3.subheader {
+    span {
+      margin-left: 1rem;
+      color: $white;
+      font-size: 0.9em;
+    }
+  }
 }
 
-.detail {
-  margin-left: 1rem;
+.more-detail.wrapper {
+  margin-top: 5rem;
+  margin-bottom: 5rem;
 
-  .title {
-    margin-bottom: 2rem;
+  .cast-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(10rem, 0.5fr));
+    column-gap: 1rem;
+    row-gap: 1rem;
+
+    @include media(767px) {
+      grid-template-columns: repeat(auto-fill, minmax(6rem, 0.4fr));
+      justify-content: center;
+    }
   }
 
-  h3 {
-    margin: 2rem 0 0.4rem;
-  }
-
-  .cast-profil {
-    width: 3.5rem;
-    border: 1px solid;
-    margin-right: 1rem;
-    border-radius: 50%;
+  .subheader {
+    margin: 2rem 0 1rem;
   }
 }

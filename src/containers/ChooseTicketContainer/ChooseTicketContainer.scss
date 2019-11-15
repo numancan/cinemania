@@ -2,6 +2,14 @@
 
 .section-title {
   margin-bottom: 2rem;
-  color: $title-color;
   text-align: left;
+}
+
+.choose-ticket-bottom {
+  text-align: right;
+
+  .button {
+    margin-top: 1rem;
+    margin-right: 0;
+  }
 }

@@ -4,22 +4,32 @@
   @include size(100%);
   @include position-abs;
   z-index: $backdrop-index;
-  background: $backdrop-gradient;
+  background-color: rgba($primary-color, 0.6);
 }
 
+// TODO: height sorunları
 .backdrop {
   @include position-abs;
   @include size(100%);
   z-index: $backdrop-index;
-  min-height: 350px;
   filter: blur(0.7rem);
   transform: scale(1.1);
 
   &.blur-light {
     filter: blur(0.1rem);
+
+    @include media(1024px) {
+      filter: blur(0.3rem);
+    }
   }
 
   &.no-stretch-height {
     height: auto;
+  }
+}
+
+@media (max-aspect-ratio: 8/5) {
+  .backdrop.no-stretch-height {
+    height: 100%;
   }
 }

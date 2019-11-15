@@ -2,10 +2,12 @@
 
 .seats-container {
   @include flex($dir: column, $align: center);
+  margin-bottom: 2rem;
 
-  @include media(520px) {
-    padding-left: 11rem;
-    overflow-y: scroll;
+  @include media(767px) {
+    align-self: normal;
+    padding-left: 20rem;
+    overflow-y: auto;
   }
 
   &::-webkit-scrollbar {
@@ -20,33 +22,10 @@
     background: $gray;
   }
 
-  .row {
-    @include flex($jc: flex-start, $align: center);
-
-    .seat {
-      @include size(1.6rem);
-      display: inline-block;
-      border: 0;
-      margin: 0.4rem;
-      background: $gray;
-      color: $white;
-      cursor: pointer;
-      outline: none;
-    }
-
-    .sold {
-      background-color: $secondary-color;
-      cursor: default;
-    }
-
-    .selected {
-      background-color: $primary-color;
-    }
-  }
-
   .scene {
     width: 90%;
-    margin: 3rem;
+    margin: 4rem 0;
+    color: lighten($secondary-color, 20);
     text-align: center;
 
     @include media(520px) {
@@ -58,9 +37,18 @@
       border: 0.3rem solid;
       content: '';
     }
+  }
+}
 
-    + button {
-      margin-left: auto;
+.choose-seat {
+  @include flex(column, center, center);
+
+  > .button {
+    margin-left: auto;
+
+    @include media(767px) {
+      align-self: stretch;
+      margin: 0;
     }
   }
 }
