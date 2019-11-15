@@ -13,8 +13,9 @@
     @include flex($dir: column, $align: center);
     width: 50rem;
 
-    @include media(520px) {
-      align-items: flex-start;
+    @include media(767px) {
+      width: auto;
+      align-items: stretch;
     }
 
     > h1 {
@@ -22,8 +23,8 @@
       margin-bottom: 1rem;
       font-size: 4rem;
 
-      @include media(520px) {
-        font-size: 2.5rem;
+      @include media(410px) {
+        font-size: 3rem;
       }
     }
 
