@@ -9,14 +9,6 @@ import Hall from '../../components/Hall';
 
 import './ChooseSeatContainer.scss';
 
-interface Props {
-  showtime: string;
-  hallID: number;
-  nextState: () => void;
-  setSelectedSeats: (value: string[]) => void;
-  selectedSeats: string[];
-}
-
 const hallTemplate: string[][] = [
   ['A1', 'A2', 'A3', 'A4', 'A5', 'A6', 'A7', 'A8', 'A9', 'A10', 'A11', 'A12'],
   ['B1', 'B2', 'B3', 'B4', 'B5', 'B6', 'B7', 'B8', 'B9', 'B10', 'B11', 'B12'],
@@ -27,6 +19,14 @@ const hallTemplate: string[][] = [
   ['G1', 'G2', 'G3', 'G4', 'G5', 'G6', 'G7', 'G8', 'G9', 'G10'],
   ['H1', 'H2', 'H3', 'H4', 'H5', 'H6', 'H7', 'H8', 'H9', 'H10', 'H11', 'H12'],
 ];
+
+interface Props {
+  showtime: string;
+  hallID: number;
+  nextState: () => void;
+  setSelectedSeats: (value: string[]) => void;
+  selectedSeats: string[];
+}
 
 const ChooseSeatContainer: FC<Props> = props => {
   const { hallID, showtime, nextState, selectedSeats, setSelectedSeats } = props;
@@ -42,18 +42,23 @@ const ChooseSeatContainer: FC<Props> = props => {
     const seatElement: HTMLButtonElement = event.currentTarget;
     const seatID: string = seatElement.value;
 
-    if (soldSeats.includes(seatID)) return;
-
-    if (selectedSeats.includes(seatID)) {
+    const removeSelectedSeat = () => {
       const seatIndex: number = selectedSeats.indexOf(seatID);
 
       selectedSeats.splice(seatIndex, 1);
       setSelectedSeats(selectedSeats);
       seatElement.classList.remove('selected');
-    } else if (totalTicketCount !== selectedSeats.length) {
+    };
+
+    const selectSeat = () => {
       seatElement.classList.add('selected');
       setSelectedSeats([...selectedSeats, seatID]);
-    }
+    };
+
+    if (soldSeats.includes(seatID)) return;
+
+    if (selectedSeats.includes(seatID)) removeSelectedSeat();
+    else if (totalTicketCount !== selectedSeats.length) selectSeat();
   };
 
   if (!soldSeats.length) return <Loading />;

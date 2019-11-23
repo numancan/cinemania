@@ -34,6 +34,7 @@ const Ticketing: FC<RouteComponentProps<{}, {}, RouteState>> = ({ location }) =>
   return (
     <div className="ticketing">
       <MovieDetails selectedMovie={selectedMovie} />
+
       <div className="ticketing-states wrapper">{ticketingComponents[currentTicketingIdx]}</div>
     </div>
   );
