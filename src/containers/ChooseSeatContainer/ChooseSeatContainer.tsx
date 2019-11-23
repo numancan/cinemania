@@ -1,4 +1,4 @@
-import React, { FC, useContext, useState, MouseEvent, useEffect, Fragment } from 'react';
+import React, { FC, useContext, useState, MouseEvent, useEffect } from 'react';
 
 import { TotalContext } from '../../contexts/TotalContext';
 import { fetchSoldSeats } from '../../services/movieService';
